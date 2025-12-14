@@ -1,0 +1,126 @@
+/* Základní styly pro tělo stránky */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f9; /* Světle šedé pozadí */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Zarovnat nahoru */
+    min-height: 100vh;
+}
+
+/* Kontejner pro centrování obsahu */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 50px 0;
+    padding: 40px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+/* Styly pro nadpisy */
+h1 {
+    color: #004d99; /* Tmavě modrá pro hlavní nadpis */
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+h2 {
+    color: #555;
+    font-weight: 400;
+    font-size: 1.1em;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Dělící čára */
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+/* Časová osa (kontejner pro body sledování) */
+.tracking-timeline {
+    padding-left: 0;
+}
+
+/* Jeden bod v časové ose */
+.timeline-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-left: 2px solid #e0e0e0; /* Vertikální čára */
+    margin-left: 20px;
+    position: relative;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+/* Odstranění levé čáry pro poslední prvek */
+.timeline-item:last-child {
+    border-left: none;
+}
+
+/* Styl pro text v bodu */
+.timeline-item p {
+    margin: 0;
+    padding-left: 25px; /* Mezera od ikony */
+    font-size: 1.05em;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+/* ------------------------------------- */
+/* LOGIKA STAVŮ */
+/* ------------------------------------- */
+
+/* Stav 'ceka' (neaktivní a budoucí) - Mírně zašedlý */
+.timeline-item.ceka {
+    color: #999;
+}
+
+/* Stav 'hotovo' (dokončený a aktivní) - Normálně černý */
+.timeline-item.hotovo {
+    color: #333;
+}
+
+/* Ikona statusu (fajfka, tečka) */
+.status-icon {
+    position: absolute;
+    left: -13px; /* Zarovnání na střed vertikální čáry */
+    background-color: #ffffff;
+    border-radius: 50%;
+    z-index: 10;
+    font-size: 1.2em;
+}
+
+/* Zelená fajfka pro stav 'hotovo' */
+.hotovo .fa-check-circle {
+    color: #28a745; /* Zelená barva */
+}
+
+/* Červená pulzující tečka pro aktivní bod */
+.active-dot {
+    color: #dc3545; /* Červená barva */
+    /* Animace pulzování */
+    animation: pulse 1s infinite alternate;
+}
+
+/* Keyframes pro animaci pulzování */
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+}
